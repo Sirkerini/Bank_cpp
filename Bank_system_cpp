@@ -84,7 +84,7 @@ int main() {
   int option;
     cout << "Menu Login\n\n";
     cout << "Selecciona el tipo de cuenta\n\n";
-    cout << "1. Crear cuenta\n";
+    cout << "1. Crear cuenta(Selecciona 1)\n";
     cin >> option;
 
     cout << "\n";
@@ -107,7 +107,7 @@ int main() {
       string nameC;
 
       do {
-
+      cout << "Ingresa los datos que acabaste de crear";
       cout << "Ingresa tu name: ";
       cin >> nameC;
       cout << "Ingresa tu pin: ";
