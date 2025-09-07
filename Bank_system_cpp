@@ -1,0 +1,148 @@
+#include <iostream>
+using namespace std;
+
+class Banco{
+
+  public:
+    string name;
+    double balance;
+    string type_account;
+    int ID;
+
+  double deposito(double x){
+
+    balance += x;
+    return balance;
+  }
+
+  double retiro(double x) {
+  if (x > balance) {
+    cout << "Balance insuficiente\n";
+    return balance;
+  } else {
+    balance -= x;
+    return balance;
+  }
+}
+
+
+  void namecl(){
+     cout << "Bienvenido " << name << "!!!\n\n";
+
+  }
+
+ 
+  void balance_total(){
+     cout << "El balance actual es de: " << balance << "\n\n";
+  }
+
+   void mostrar_menu() {
+    int opcion;
+    do {
+    cout << "\n¿Qué quieres hacer?\n";
+    cout << "1. Depositar\n";
+    cout << "2. Retirar\n";
+    cout << "3. Ver balance\n";
+    cout << "4. Salir\n";
+    cin >> opcion;
+
+  if (opcion == 1) {
+     cout << "Este es tu dinero actual: " << balance << "\n";
+     double monto;
+     cout << "¿Cuánto quieres depositar?: ";
+     cin >> monto;
+     deposito(monto);   
+     balance_total();
+ } 
+   else if (opcion == 2) {
+      cout << "Este es tu dinero actual: " << balance << "\n";
+      double monto;
+      cout << "¿Cuánto quieres retirar?: ";
+      cin >> monto;
+      retiro(monto);     
+      balance_total();
+ }
+  else if (opcion == 3) {
+      balance_total();
+}
+ else if (opcion == 4) {
+     cout << "Saliendo...\n";
+}
+ else {
+     cout << "Opción inválida\n";
+}
+
+} while (opcion != 4);
+        
+}
+
+
+};
+  
+int main() {
+  std::cout << "Bienvenido al Banco Perez\n\n";
+  int option;
+    cout << "Menu Login\n\n";
+    cout << "Selecciona el tipo de cuenta\n\n";
+    cout << "1. Crear cuenta\n";
+    cin >> option;
+
+    cout << "\n";
+
+    if (option == 1){
+      int pin;
+      string name;
+
+      cout << "Crea tu usuario: ";
+      cin >> name;
+
+      cout << "Ingresa tu pin seguridad: ";
+      cin >> pin;
+
+      cout << "Cuenta creada!!!\n\n";
+
+      cout << "\n";
+
+      int pinC;
+      string nameC;
+
+      do {
+
+      cout << "Ingresa tu name: ";
+      cin >> nameC;
+      cout << "Ingresa tu pin: ";
+      cin >> pinC;
+
+      if (nameC != name or pinC != pin){
+        cout << "Pin o usuario invalido, intenta otra vez \n";
+      }
+
+      }while (nameC != name or pinC != pin);
+
+      cout << "\n";
+
+      if(name == nameC and pin == pinC){
+        cout << "Bienvenido " << nameC << "\n";
+
+        Banco bancop;
+
+       bancop.name = nameC;
+        bancop.ID = 001;
+        bancop.type_account = "Cuenta de ahorro";
+        bancop.balance = 100.50;
+        bancop.balance_total();
+        bancop.mostrar_menu();
+
+      }
+
+      else{
+        cout << "Es incorrecto";
+      }
+
+    }
+
+    else {
+      cout << "No elegiste la opcion correcta, por favor vuelve a intentar";
+    }
+
+}
