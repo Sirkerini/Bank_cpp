@@ -107,7 +107,7 @@ int main() {
       string nameC;
 
       do {
-      cout << "Ingresa los datos que acabaste de crear";
+      cout << "Ingresa los datos que acabaste de crear\n\n";
       cout << "Ingresa tu name: ";
       cin >> nameC;
       cout << "Ingresa tu pin: ";
